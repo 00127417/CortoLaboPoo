@@ -160,6 +160,7 @@ public class Consulta extends JFrame {
 
         tm.addColumn("Codigo");
         tm.addColumn("Nombre");
+        tm.addColumn("Tipo");
         tm.addColumn("Disponibilidad");
         tm.addColumn("Precio");
         tm.addColumn("Cantidad");
@@ -168,7 +169,7 @@ public class Consulta extends JFrame {
         ArrayList<Filtro> filtros = fd.readAll();
 
         for (Filtro fi : filtros) {
-            tm.addRow(new Object[]{fi.getCodigo(), fi.getNombre(), fi.getDisponibilidad(),fi.getPrecio(),fi.getCantidad()});
+            tm.addRow(new Object[]{fi.getNombre(), fi.getCodigo(),fi.getTipo(), fi.getDisponibilidad(),fi.getPrecio(),fi.getCantidad()});
         }
 
         resultados.setModel(tm);
@@ -240,8 +241,8 @@ public class Consulta extends JFrame {
                     JOptionPane.showMessageDialog(null, "El Producto buscado no ha sido encontrado");
                 } else {
 
-                    codigo.setText(f.getCodigo());
-                    nombre.setText(f.getNombre());
+                    nombre.setText(f.getCodigo());
+                    codigo.setText(f.getNombre());
                     tipo.setSelectedItem(f.getTipo());
                     precio.setText(Double.toString(f.getPrecio()));
                     cantidad.setText(Integer.toString(f.getCantidad()));

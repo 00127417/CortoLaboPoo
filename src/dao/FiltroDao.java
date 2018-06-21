@@ -24,7 +24,7 @@ import sun.util.logging.PlatformLogger;
  */
 public class FiltroDao implements metodos<Filtro> {
 
-    private static final String SQL_INSERT = "INSERT INTO productos (nombre,codigo, tipo, cantidad,precio,disponibilidad) VALUES(?,?,?,?,?,?)";
+    private static final String SQL_INSERT = "INSERT INTO productos (codigo,nombre, tipo, cantidad,precio,disponibilidad) VALUES(?,?,?,?,?,?)";
     private static final String SQL_UPDATE = "UPDATE procuctos SET tipo = ?, cantidad = ?, precio = ?,disponibilidad=? WHERE codigo = ?";
     private static final String SQL_DELETE = "DELETE FROM productos WHERE codigo = ?";
     private static final String SQL_READ = "SELECT * FROM productos WHERE codigo = ?";
@@ -36,8 +36,8 @@ public class FiltroDao implements metodos<Filtro> {
         PreparedStatement ps;
         try {
             ps = con.getCnx().prepareStatement(SQL_INSERT);
-            ps.setString(1, g.getNombre());
-            ps.setString(2, g.getCodigo());
+            ps.setString(1, g.getCodigo());
+            ps.setString(2, g.getNombre());
             ps.setString(3, g.getTipo());
             ps.setInt(4, g.getCantidad());
             ps.setDouble(5, g.getPrecio());
