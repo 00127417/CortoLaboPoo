@@ -152,6 +152,12 @@ public class Consulta extends JFrame {
                         return String.class;
                     case 2:
                         return String.class;
+                    case 3:
+                        return String.class;
+                    case 4:
+                        return String.class;
+                    case 5:
+                        return String.class;
                     default:
                         return Boolean.class;
                 }
@@ -266,6 +272,8 @@ public class Consulta extends JFrame {
 
     public void limpiarCampos() {
         codigo.setText("");
+        precio.setText("");
+        cantidad.setText("");
         tipo.setSelectedItem("Fruta");
         nombre.setText("");
     }

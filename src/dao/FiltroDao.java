@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Filtro;
-import sun.util.logging.PlatformLogger;
+//import sun.util.logging.PlatformLogger;
 
 /**
  *
@@ -25,7 +25,7 @@ import sun.util.logging.PlatformLogger;
 public class FiltroDao implements metodos<Filtro> {
 
     private static final String SQL_INSERT = "INSERT INTO productos (codigo,nombre, tipo, cantidad,precio,disponibilidad) VALUES(?,?,?,?,?,?)";
-    private static final String SQL_UPDATE = "UPDATE procuctos SET tipo = ?, cantidad = ?, precio = ?,disponibilidad=? WHERE codigo = ?";
+    private static final String SQL_UPDATE = "UPDATE productos SET tipo = ?, cantidad = ?, precio = ?,disponibilidad=? WHERE codigo = ?";
     private static final String SQL_DELETE = "DELETE FROM productos WHERE codigo = ?";
     private static final String SQL_READ = "SELECT * FROM productos WHERE codigo = ?";
     private static final String SQL_READALL = "SELECT * FROM productos";
@@ -108,7 +108,7 @@ public class FiltroDao implements metodos<Filtro> {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                f = new Filtro(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getDouble(6), rs.getBoolean(6));
+                f = new Filtro(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getDouble(6), rs.getBoolean(7));
             }
             rs.close();
         } catch (SQLException ex) {
@@ -132,7 +132,7 @@ public class FiltroDao implements metodos<Filtro> {
             rs = s.executeQuery(SQL_READALL);
 
             while (rs.next()) {
-                all.add(new Filtro(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getDouble(6), rs.getBoolean(6)));
+                all.add(new Filtro(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getDouble(6), rs.getBoolean(7)));
             }
             rs.close();
         } catch (SQLException ex) {
